@@ -1,0 +1,7 @@
+.footer {
+  background-color: var(--accent-color);
+  height: 268px;
+  position: sticky;
+  bottom: 0;
+  color: var(--light-text-color)
+}

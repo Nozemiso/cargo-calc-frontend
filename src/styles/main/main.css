@@ -1,0 +1,8 @@
+.main {
+  background-color: #FFFFFF;
+  /*height: min(fit-content, calc(100vh - 72px - 268px));*/
+  height: fit-content;
+  min-height: calc(100vh - 72px - 268px);
+  width: 952px;
+  margin: auto;
+}
