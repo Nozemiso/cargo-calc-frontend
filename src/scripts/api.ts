@@ -1,15 +1,22 @@
-class api {
+import { requestModel } from "./requestModel";
 
+export class api {
   url: URL
 
-  constructor(url: string) {
+  constructor(url: URL) {
     this.url = new URL(url)
   }
 
-  calculatePrice(width: Number, height: Number, weight: Number, from: string, to: string) {
-    return fetch(this.url, {
-      method: "GET",
-      body: JSON.stringify({width, height, weight, from, to})
+  calculatePrice(data: requestModel) {
+    const _url = new URL("/cost", this.url);
+    for (const [k, v] of Object.entries(data)) {
+      _url.searchParams.append(k.toString(), v.toString())
+    }
+
+    return fetch(_url)
+    .then((res) => {
+      if (res.ok) return res.json();
+      else return Promise.reject(res.status);
     })
   }
 }

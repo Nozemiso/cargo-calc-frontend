@@ -36,16 +36,18 @@
     <form id="reqForm">
       <div class="textinput">
         <label class="textinput__label">Откуда</label>
-        <input class="textinput__input">
+        <input id="from" class="textinput__input">
       </div>
       <div class="textinput">
         <label class="label">Куда</label>
-        <input class="textinput__input">
+        <input id="to" class="textinput__input">
       </div>
       <p class="about__text">Расскажите больше о вашем грузе</p>
       <div class="textinput">
         <label class="label">Параметры груза</label>
-        <select class="about__preset">
+        <select id="preset" class="about__preset">
+          <option value="" disabled selected hidden>Укажите размер груза</option>
+          <option value="custom">Свой размер</option>
         </select>
       </div>
       <fieldset class="modifiers__fieldset">
