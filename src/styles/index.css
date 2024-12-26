@@ -10,3 +10,5 @@
 @import url('./fieldset/fieldset.css');
 @import url('./modifiers/modifiers.css');
 @import url("./select/select.css");
+@import url("./custom/custom.css");
+@import url("./result/result.css");

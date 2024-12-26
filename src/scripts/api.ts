@@ -8,7 +8,7 @@ export class api {
   }
 
   calculatePrice(data: requestModel) {
-    const _url = new URL("/cost", this.url);
+    const _url = new URL(this.url.pathname + "/cost", this.url);
     for (const [k, v] of Object.entries(data)) {
       _url.searchParams.append(k.toString(), v.toString())
     }
