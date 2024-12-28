@@ -1,7 +1,10 @@
 import { fillPresets, presetArray, preset } from "./presets"
 import { requestModel } from "./requestModel"
 import { api } from "./api"
+import { fillPoints } from "./points"
 const presetListSelector: Element = document.querySelector(".about__preset")
+const toPointsSelector: Element = document.querySelector(".to__preset")
+const formPointsSelector: Element = document.querySelector(".from__preset")
 const calculateButtonSelector: Element = document.querySelector(".button-calculate")
 const requestForm: HTMLFormElement = document.querySelector("#reqForm")
 
@@ -40,7 +43,6 @@ function calculateHandler(){
   const errorElement = simpleValidation()
 
   if (errorElement) {
-    console.log(errorElement.id);
     showMessage(`Не заполнено поле ${errorElement.id}`);
     return;
   }
@@ -63,13 +65,14 @@ function calculateHandler(){
 
   _api.calculatePrice(request)
   .then((res) => {
-    console.log(res)
-    showMessage(`Рассчётная стоимость: ${res} р.`);
+    showMessage(`Рассчётная стоимость: ${res.cost} р.`);
   })
   .catch(showMessage)
 }
 
+fillPoints(toPointsSelector);
+fillPoints(formPointsSelector);
+fillPresets(presetListSelector);
 
-fillPresets(presetListSelector)
 calculateButtonSelector.addEventListener("click", calculateHandler);
 presetListSelector.addEventListener("change", presetListSelectorHandler)
